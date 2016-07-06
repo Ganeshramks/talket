@@ -1,2 +1,2 @@
 # talket
-A brief to web
+A brief talket to web
