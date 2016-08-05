@@ -1,0 +1,35 @@
+<html>
+	<head>
+		<title>Talket</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="node_modules/angular-material/angular-material.min.css">
+		<script type="text/javascript" src="node_modules/angular/angular.min.js"></script>
+		<script type="text/javascript" src="node_modules/angular-material/angular-material.min.js"></script>
+		<script type="text/javascript" src="node_modules/angular-animate/angular-animate.min.js"></script>
+		<script type="text/javascript" src="node_modules/angular-aria/angular-aria.min.js"></script>
+		<script type="text/javascript" src="talk.js"></script>
+	</head>
+	<body ng-app="talket">
+		<div ng-controller="talketrl">
+			<md-toolbar class="md-tall"></md-toolbar>
+			<md-content layout-padding layout layout-align="center">
+				<label style="color:#F5F5F5">{{msg}}</label>
+					<h1>Play Tic Tac Toe with your best buddy!</h1>
+			</md-content>
+			<br><br><br><br><br>
+			<md-card flex="20">	
+				<md-card-content>
+					<div flex-offset="15">
+						<md-input-container flex="75" required>
+							<label>Your Board Name</label>
+							<input type="text" ng-model="board_name">
+						</md-input-container>
+					</div>
+					<div layout flex-offset="25">	
+						<md-button class="md-raised md-primary" ng-click="start(board_name)"> {{btn_name}} </md-button>	
+					</div>
+				</md-card-content>
+			</md-card>
+		</div>
+	</body>	
+</html>
