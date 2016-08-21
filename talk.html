@@ -5,33 +5,43 @@
 		<link rel="stylesheet" href="node_modules/angular-material/angular-material.min.css">
 		<link rel="stylesheet" href="chatBox/chatBox.css">
 		<script type="text/javascript" src="node_modules/angular/angular.min.js"></script>
+		<script type="text/javascript" src="node_modules/angular-route/angular-route.min.js"></script>
 		<script type="text/javascript" src="node_modules/angular-material/angular-material.min.js"></script>
 		<script type="text/javascript" src="node_modules/angular-animate/angular-animate.min.js"></script>
 		<script type="text/javascript" src="node_modules/angular-aria/angular-aria.min.js"></script>
-		<script type="text/javascript" src="chatBox/chatBox.js"></script>
 		<script type="text/javascript" src="talk.js"></script>
+		<script type="text/javascript" src="routing.js"></script>
 	</head>
 	<body ng-app="talket">
 		<div ng-controller="talketrl">
-			<md-toolbar class="md-tall"></md-toolbar>
-			<md-content layout-padding layout layout-align="center">
-				<label style="color:#F5F5F5">{{msg}}</label>
-					<h1>Play Tic Tac Toe with your best buddy!</h1>
-			</md-content>
-			<br><br><br><br><br>
-			<md-card flex="20">	
-				<md-card-content>
-					<div flex-offset="15">
-						<md-input-container flex="75" required>
-							<label>Your Board Name</label>
-							<input type="text" ng-model="board_name">
-						</md-input-container>
-					</div>
-					<div layout flex-offset="25">	
-						<md-button class="md-raised md-primary" ng-click="start(board_name)"> {{btn_name}} </md-button>	
-					</div>
-				</md-card-content>
-			</md-card>
+			<md-toolbar class="md-whiteframe-z2">
+				<div class="md-tollbar-tools" layout layout-align="left center">
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					<md-button class="md-icon-button" aria-label="sidenavSettings" ng-click="showSideNav()">
+						<md-icon md-svg-icon="icons/menu.svg"></md-icon>
+					</md-button>
+					<h3 flex-offset="5"><span>ChitChat</span></h3>
+				</div>
+			</md-toolbar>
+			<br><br>
+			<div>
+				<md-sidenav md-component-id="leftNav" md-is-open="false" class="md-sidenav-left md-whiteframe-z4">
+					<md-toolbar layout="column" class="md-tall" layout-align="center center">
+						<br><br>
+						<md-icon md-svg-icon="icons/person.svg"></md-icon>
+						<h5>On board</h5>
+					</md-toolbar>
+					<md-subheader>
+						You are {{phone_number}}
+					</md-subheader>
+					<md-list>
+						<md-list-item ng-repeat="phoneNo in phoneNos track by id">
+							{{phoneNo}}
+						</md-list-item>
+					</md-list>	
+				</md-sidenav>
+			</div>
+			<div ng-view></div>
 		</div>
 	</body>	
 </html>

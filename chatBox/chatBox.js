@@ -1,4 +1,5 @@
-function sendMessage (msg_input_node) {
+function sendMessage (msg_input_node) 
+{
 	message_srting = msg_input_node.value;
 	if (message_srting.trim()) {
 		log_node = document.getElementById('chatLog');
@@ -6,21 +7,33 @@ function sendMessage (msg_input_node) {
 		p_node.className = "message float-right"
 		msg_node = document.createTextNode(message_srting);
 		p_node.appendChild(msg_node);
+		if (log_node.lastChild != null) {
+			margin = (1 - log_node.lastChild.offsetWidth/chatLog.offsetWidth)*87;
+			log_node.lastChild.style.marginLeft = margin+"%";
+		}
 		log_node.appendChild(p_node);
 		log_node.scrollTop = log_node.scrollHeight; 
 		msg_input_node.value="";
 		msg_input_node.focus();
-		msg_input_node.select();
 	}
-
 }
 
-function chatBox(){
+function sendMsgHandler(e)
+{
+	if (e.keyCode==13 || e.which==13) {
+		msg_input_node = document.getElementById("chatInput");
+		sendMessage(msg_input_node);
+	}
+	return false;
+}
+
+/*function chat(){
 
 	if (document.readyState != "complete") {
 		console.warn('%c Document not ready. Failed to create chatBox.', 'color:#710609;');
 		return false;
 	}
+	console.info('creating chatBox');
 	
 	this.chatBox = document.createElement("DIV");
 	this.chatBox.className = "chat-box";
@@ -72,4 +85,4 @@ function chatBox(){
 
 	return this.chatBox;
 
-}
+}*/

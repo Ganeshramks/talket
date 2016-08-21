@@ -13,15 +13,12 @@
 }
 .chat-box{
 	position:relative;
-	left:20%;
+	left:36%;
 	top:20%;
 	width:20%;
-	height:70%;
-	box-shadow: 0 2px 2px grey;
+	height:320px;
 	z-index:9999;
 	max-width: 257px;
-	max-height: 320px;
-	min-height: 160px;
 	overflow-y:hidden;
 }
 .chat-log{
@@ -33,21 +30,16 @@
 }
 .chat-form{
 	width: 100%;
-	/*height: 12%;*/
+	background-color: white;
 	min-height: 38px;
-	box-shadow: 0 -1px 1px #c1c1c1;
 }
 .msg-input{
-	width: 74%;
+	width: 95%;
     height: 38px;
     margin-left: 2%;
+    margin-right: 2%;
     word-break:keep-all;
     border: none;
-    outline: none;
-}
-.send-btn{
-	height: 2.6em;
-    width: 23.3%;
     outline: none;
 }
 .message{
